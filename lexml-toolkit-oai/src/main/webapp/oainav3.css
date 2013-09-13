@@ -1,0 +1,115 @@
+ADDRESSs {
+	FONT-SIZE: x-small;
+	FONT-FAMILY: Geneva, Verdana, Helvetica, Arial, sans-serif
+}
+
+BODY {
+	COLOR: #000000;
+	FONT-FAMILY: Arial, Helvetica, Geneva, Verdana, sans-serif
+}
+
+BUTTONs {
+	CURSOR: auto
+}
+
+H2 {
+	FONT: bold 1.8em helvetica, arial, sans-serif;
+	COLOR: #00527c
+}
+
+HR {
+	COLOR: #cccccc;
+	HEIGHT: 1px
+}
+
+INPUTs {
+	CURSOR: auto;
+	COLOR: #000000
+}
+
+SELECTs {
+
+	COLOR: #000000;
+	FONT-FAMILY: Arial, Helvetica, Geneva, Verdana, sans-serif
+}
+
+TDs {
+	MARGIN-LEFT: 0px;
+	FONT-FAMILY: Arial, Helvetica, Geneva, Verdana, sans-serif
+}
+
+TEXTAREAs {
+	CURSOR: text;
+	COLOR: #000000;
+	BACKGROUND-COLOR: #ffffff
+}
+
+THs {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: x-small;
+	MARGIN-LEFT: 0px;
+	FONT-FAMILY: Arial, Helvetica, Geneva, Verdana, sans-serif;
+	TEXT-ALIGN: center
+}
+
+.perfil {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: x-small;
+	MARGIN-LEFT: 0px;
+	FONT-FAMILY: Arial, Helvetica, Geneva, Verdana, sans-serif;
+	TEXT-ALIGN: center
+}
+
+A.footer:link {
+	COLOR: #336600;
+	TEXT-DECORATION: none
+}
+
+A.footer:link {
+	COLOR: #336600;
+	TEXT-DECORATION: none
+}
+
+A.footer:visited {
+	COLOR: #669933;
+	TEXT-DECORATION: none
+}
+
+A.footer:active {
+	COLOR: #99cc33;
+	TEXT-DECORATION: none
+}
+
+A.footer:hover {
+	COLOR: #ff0000;
+	TEXT-DECORATION: underline
+}
+
+.divider {
+	COLOR: #999999
+}
+
+.nospace {
+	MARGIN-TOP: 0px;
+	MARGIN-BOTTOM: 0px
+}
+.tdspacer {
+	background: #FFFFFF;
+	border-left: 1px #D0D0D0 solid;
+	border-right: 1px #D0D0FF solid;
+}
+
+.tdstatusdeleted {
+	background: #F0D0D0;
+}
+
+.tdstatus {
+	background-color: #D0D0F0;
+}
+
+div.formlayer {
+	bosrder: 1px solid black;
+	font-size: 1em;
+	width: 350px;
+	display: none;
+}

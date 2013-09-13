@@ -1,0 +1,36 @@
+----------------------------------------------------
+Correção do XML Schema oai_lexml.xsd
+
+O arquivo http://projeto.lexml.gov.br/esquemas/oai_lexml.xsd sofreu alteração
+em 04/05/2010 para corrigir a inserção dos registros OAI do LexML dentro
+das mensagens do protocolo OAI-PMH.
+
+Por enquanto continuaremos aceitando os registros OAI do LexML no formato
+antigo, apenas informando na validação que existem registros antigos, 
+mas encorajamos todos os provedores a migrarem seus registros para o novo
+formato.
+
+Segue abaixo a descrição das alterações necessárias:
+
+----------------------
+Formato Antigo  
+
+<lexml:LexML xmlns:lexml="http://www.lexml.gov.br/oai_lexml" ...>
+  <Item>...</Item>
+  ...
+</lexml:LexML>
+
+- Declaração do namespace "xmlns:lexml"
+- Utilização de prefixo de namespace "lexml:" para o elemento LexML
+- Demais elementos sem prefixo
+
+----------------------
+Novo formato  
+
+<LexML xmlns="http://www.lexml.gov.br/oai_lexml" ...>
+  <Item>...</Item>
+  ...
+</LexML>
+
+- Declaração de namespace default "xmlns".
+- Todos os elementos sem prefixo de namespace.

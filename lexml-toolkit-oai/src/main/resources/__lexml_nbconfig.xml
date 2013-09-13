@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConfiguracaoProvedor dataGeracao="2001-12-17T09:30:47.0Z" xmlns="http://www.lexml.gov.br/profile_lexml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.lexml.gov.br/profile_lexml http://projeto.lexml.gov.br/esquemas/provedor_profile_lexml.xsd">
+	<Provedor nome="Senado Federal" idProvedor="1" tipo="Provedor" baseURL="http://">
+		<Administrador idResponsavel="1" email="gabriel@gmail.com" senha="ebf366fd93fa6a12cddcfdcbbc65a48fc35aea57b538e136c2ef79118d614b89"/>
+		<Publicador nome="Subsecretaria de Informações" idPublicador="1" sigla="SSINF">
+			<Responsavel idResponsavel="2" email="gabrielmathias@gmail.com" senha="ebf366fd93fa6a12cddcfdcbbc65a48fc35aea57b538e136c2ef79118d614b89"/>
+			<Perfil localidade="br" autoridade="federal" tipoDocumento="lei" tipoPerfil="D"/>
+			<Perfil localidade="br" autoridade="federal" tipoDocumento="decreto" tipoPerfil="D"/>
+			<Perfil localidade="br" autoridade="federal" tipoDocumento="decreto" tipoPerfil="R"/>
+			<Perfil localidade="br" autoridade="federal" tipoDocumento="lei" tipoPerfil="R"/>
+			<Perfil autoridade="assembleia.nacional.constituinte" localidade="br" tipoDocumento="publicacao.oficial;diario.assembleia.nacional.constituinte" tipoPerfil="R"/>
+			<Perfil autoridade="assembleia.nacional.constituinte" localidade="br" tipoDocumento="publicacao.oficial;diario.assembleia.nacional.constituinte;suplemento" tipoPerfil="R"/>
+			<Perfil autoridade="camara.deputados" localidade="br" tipoDocumento="resolucao" tipoPerfil="T"/>
+			<Perfil autoridade="congresso.nacional" localidade="br" tipoDocumento="publicacao.oficial;diario.congresso.nacional" tipoPerfil="R"/>
+			<Perfil autoridade="congresso.nacional" localidade="br" tipoDocumento="resolucao" tipoPerfil="T"/>
+			<Perfil autoridade="congresso.nacional" localidade="br" tipoDocumento="publicacao.oficial;diario.congresso.nacional;secao.1" tipoPerfil="R"/>
+			<Perfil autoridade="congresso.nacional" localidade="br" tipoDocumento="publicacao.oficial;diario.congresso.nacional;secao.2" tipoPerfil="R"/>
+			<Perfil autoridade="congresso.nacional" localidade="br" tipoDocumento="publicacao.oficial;diario.congresso.nacional;suplemento" tipoPerfil="R"/>
+			<Perfil autoridade="congresso.nacional" localidade="br" tipoDocumento="publicacao.oficial;diario.congresso.nacional;secao.2;suplemento" tipoPerfil="R"/>
+			<Perfil autoridade="congresso.nacional" localidade="br" tipoDocumento="publicacao.oficial;diario.congresso.nacional;secao.1;suplemento" tipoPerfil="R"/>
+			<Perfil autoridade="federal" localidade="br" tipoDocumento="constituicao" tipoPerfil="T"/>
+			<Perfil autoridade="federal" localidade="br" tipoDocumento="decreto" tipoPerfil="T"/>
+			<Perfil autoridade="federal" localidade="br" tipoDocumento="decreto.legislativo" tipoPerfil="T"/>
+			<Perfil autoridade="federal" localidade="br" tipoDocumento="decreto.lei" tipoPerfil="T"/>
+			<Perfil autoridade="federal" localidade="br" tipoDocumento="emenda.constitucional" tipoPerfil="T"/>
+			<Perfil autoridade="federal" localidade="br" tipoDocumento="lei" tipoPerfil="T"/>
+			<Perfil autoridade="federal" localidade="br" tipoDocumento="lei.complementar" tipoPerfil="T"/>
+			<Perfil autoridade="federal" localidade="br" tipoDocumento="lei.delegada" tipoPerfil="T"/>
+			<Perfil autoridade="federal" localidade="br" tipoDocumento="medida.provisoria" tipoPerfil="T"/>
+			<Perfil autoridade="imprensa.nacional" localidade="br" tipoDocumento="publicacao.oficial;diario.oficial.uniao;secao.1;suplemento" tipoPerfil="R"/>
+			<Perfil autoridade="imprensa.nacional" localidade="br" tipoDocumento="publicacao.oficial;colecao.leis.brasil" tipoPerfil="R"/>
+			<Perfil autoridade="imprensa.nacional" localidade="br" tipoDocumento="publicacao.oficial;diario.oficial.uniao;edicao.especial" tipoPerfil="R"/>
+			<Perfil autoridade="imprensa.nacional" localidade="br" tipoDocumento="publicacao.oficial;diario.oficial.uniao;secao.1;edicao.extra" tipoPerfil="R"/>
+			<Perfil autoridade="imprensa.nacional" localidade="br" tipoDocumento="publicacao.oficial;diario.oficial.uniao;secao.3;edicao.extra" tipoPerfil="R"/>
+			<Perfil autoridade="imprensa.nacional" localidade="br" tipoDocumento="publicacao.oficial;diario.oficial.uniao;secao.2;edicao.extra" tipoPerfil="R"/>
+			<Perfil autoridade="imprensa.nacional" localidade="br" tipoDocumento="publicacao.oficial;diario.oficial.uniao;secao.1" tipoPerfil="R"/>
+			<Perfil autoridade="imprensa.nacional" localidade="br" tipoDocumento="publicacao.oficial;diario.oficial.uniao;secao.2" tipoPerfil="R"/>
+			<Perfil autoridade="imprensa.nacional" localidade="br" tipoDocumento="publicacao.oficial;diario.oficial.uniao;secao.3" tipoPerfil="R"/>
+			<Perfil autoridade="ministerio.exercito" localidade="br" tipoDocumento="publicacao.oficial;boletim.ministerio.exercito" tipoPerfil="R"/>
+			<Perfil autoridade="ministerio.exercito" localidade="br" tipoDocumento="publicacao.oficial;noticiario.exercito" tipoPerfil="R"/>
+			<Perfil autoridade="ministerio.marinha" localidade="br" tipoDocumento="publicacao.oficial;boletim.ministerio.marinha" tipoPerfil="R"/>
+			<Perfil autoridade="senado.federal" localidade="br" tipoDocumento="publicacao.oficial;diario.senado.federal" tipoPerfil="R"/>
+			<Perfil autoridade="senado.federal" localidade="br" tipoDocumento="resolucao" tipoPerfil="T"/>
+			<Perfil autoridade="senado.federal" localidade="br" tipoDocumento="publicacao.oficial;diario.senado.federal;suplemento" tipoPerfil="R"/>
+		</Publicador>
+		<Publicador nome="Supremo Tribunal Federal" idPublicador="2" sigla="SSINF">
+			<Responsavel idResponsavel="2" email="gabrielmathias@gmail.com" senha="ebf366fd93fa6a12cddcfdcbbc65a48fc35aea57b538e136c2ef79118d614b89"/>
+			<Perfil localidade="br" autoridade="federal" tipoDocumento="lei" tipoPerfil="D"/>
+			<Perfil autoridade="supremo.tribunal.federal;plenario" localidade="br" tipoDocumento="acordao" tipoPerfil="R"/>
+			<Perfil autoridade="supremo.tribunal.federal" localidade="br" tipoDocumento="acordao;hc" tipoPerfil="R"/>
+			<Perfil autoridade="supremo.tribunal.federal" localidade="br" tipoDocumento="acordao;ms" tipoPerfil="R"/>
+		</Publicador>
+	</Provedor>
+</ConfiguracaoProvedor>

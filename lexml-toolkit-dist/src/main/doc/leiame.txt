@@ -1,0 +1,97 @@
+-------------------------------------------
+LexML - Kit Provedor de dados
+-------------------------------------------
+
+Este documento descreve de forma simplificada o procedimento
+para instalação do Validador e da Interface OAI-PMH.
+
+Para uma compreensão mais completa do Kit Provedor
+de dados, leia o documento LexML_Brasil-Parte_4a-Kit_Provedor_de_Dados.pdf.
+
+-------------------------------------------
+Instalação do Validador
+
+  1. Obter perfil do provedor (arquivo lexml_nbconfig.xml) junto ao Prodasen
+
+  2. Posicionar o arquivo lexml_nbconfig.xml na pasta /etc
+
+  3. Colocar na pasta /lib o driver JDBC do seu banco de dados
+
+        - A pasta /lib já tem os drivers para o MySQL, PostgreSQL e SQL Server.
+
+  4. Caso seu banco de dados não for Oracle, DB2, MySQL, PostgreSQL ou SQL Server você
+  deverá providenciar o arquivo /etc/lexml-db.properties com as seguintes propriedades
+  ajustadas ao seu banco de dados:
+
+        hibernate.dialect=org.hibernate.dialect.MySQLDialect
+        hibernate.connection.driver_class=com.mysql.jdbc.Driver
+        hibernate.connection.url=jdbc:mysql://127.0.0.1:3306/lexml?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+        hibernate.connection.username=lexml
+        hibernate.connection.password=lexml
+
+  5. Executar o script /bin/instalar.bat (windows) ou /bin/instalar.sh (linux)
+
+        - Informar dados para conexão com seu banco de dados
+
+  6. Após a instalação você poderá utilizar o script abaixo:
+
+        /bin/validar.bat (windows) /bin/validar.sh (linux)
+            Validação dos registros incluídos no banco de dados
+
+-------------------------------------------
+Instalação da Interface WEB OAI-PMH
+
+  1. É necessário instalar antes o Validador
+  
+  2. Colocar no classpath do seu servidor de aplicação o driver JDBC do seu banco de dados.
+
+        Tomcat: pasta $CATALINA_HOME/lib
+        JBoss:  pasta $JBOSS_HOME/server/default/deploy
+        OAS:    pasta $OAS_HOME/j2ee/home/shared-lib
+        
+        Obs 2: Para rodar no JBoss AS 7 remova o tag <class-loading ...> ... </class-loading> 
+        do arquivo /WEB-INF/jboss-web.xml e coloque o driver JDBC do seu banco de dados 
+        em /WEB-INF/lib (dentro do arquivo oai.war) 
+
+  3. Fazer o deploy do arquivo /oai/oai.war em seu servidor de aplicação
+
+        Tomcat: pasta $CATALINA_HOME/webapps
+        JBoss:  pasta $JBOSS_HOME/server/default/deploy
+        OAS:    pasta $OAS_HOME/j2ee/home/application-deployments
+
+  Obs: Após a instalação do Kit Provedor de Dados o arquivo oai.war estará configurado
+  para se conectar diretamente ao banco de dados informado sem utilizar um pool de conexões
+  do servidor de aplicação. Caso você prefira utilizar o pool de conexões do seu servidor
+  de aplicação edite o arquivo oai.war:/WEB-INF/classes/lexml-db.properties faça
+  as seguintes alterações:
+
+    # Adicionar o nome do datasource
+    hibernate.connection.datasource=jdbc/lexmlDS
+
+    # Retirar dados de conexão direta com o banco de dados
+    #hibernate.connection.driver_class=com.mysql.jdbc.Driver
+    #hibernate.connection.url=jdbc:mysql://127.0.0.1:3306/lexml?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+    #hibernate.connection.username=lexml
+    #hibernate.connection.password=lexml
+
+  E exclua o arquivo oai.war:/WEB-INF/classes/hibernate.properties
+  
+  4. Teste sua instalação:
+
+        Abra no browser: http://nome.do.servidor/oai
+
+        clique em [ListMetadataFormats] e em seguida em [oai_lexml]
+
+-------------------------------------------
+
+Em caso de dúvida ou algum erro na instalação entrar em contato com:
+
+    Marcos FRAGOMENI
+    Analista de Informática - Senado Federal/Prodasen
+    Tel: (61) 3311-2254
+    E-mail: fragomeni@senado.gov.br
+
+    Lauro César Araujo
+    Analista de Informática - Senado Federal/Prodasen
+    Tel: (61) 3311-3673
+    E-mail: lauroa@senado.gov.br

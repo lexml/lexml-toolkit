@@ -1,0 +1,16 @@
+/* A DEBUG CSS  */
+div#header {           
+	background: blue;
+}	
+div#content {
+	background: green;
+}
+div#main {
+	background: red;
+}
+div#header {
+	background: blue;
+}
+div#branding {
+	background: yellow;
+}
