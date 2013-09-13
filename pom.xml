@@ -92,8 +92,13 @@
 					<branch>refs/heads/master</branch>
 					<includes>
 						<include>**/*</include>
-						<excludes>**/QuadroComparativo.jar</excludes>
 					</includes>
+					<excludes>
+						<exclude>**/*.war</exclude>
+						<exclude>**/*.zip</exclude>
+						<exclude>**/*-with-dependencies.jar</exclude>
+					</excludes>
+					
 					<repositoryName>mvn-repo</repositoryName>      <!-- github repo name -->
 					<repositoryOwner>lexml</repositoryOwner>    <!-- github username -->
 					<merge>true</merge>

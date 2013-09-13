@@ -3,8 +3,8 @@
 	<parent>
 		<groupId>br.gov.lexml.toolkit</groupId>
 		<artifactId>lexml-tookit</artifactId>
-		<relativePath>../</relativePath>
 		<version>3.3.1-SNAPSHOT</version>
+		<relativePath>../</relativePath>
 	</parent>
 	<artifactId>lexml-toolkit-oai</artifactId>
 	<name>Servidor OAI do Kit Provedor de Dados</name>
