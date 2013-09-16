@@ -97,7 +97,9 @@
 					</includes>
 					<excludes>
 						<exclude>**/*.war</exclude>
+						<exclude>**/*.war.*</exclude>
 						<exclude>**/*.zip</exclude>
+						<exclude>**/*.zip.*</exclude>
 						<exclude>**/*-with-dependencies*</exclude>
 					</excludes>
 					
