@@ -59,7 +59,7 @@
 				<configuration>
 					<detail>true</detail>
 					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
-					<preparationGoals>clean install assembly:single</preparationGoals>
+					<preparationGoals>clean install</preparationGoals>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
 					<updateBranchVersions>true</updateBranchVersions>
 					<updateWorkingCopyVersions>false</updateWorkingCopyVersions>
