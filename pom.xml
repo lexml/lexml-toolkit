@@ -98,7 +98,7 @@
 					<excludes>
 						<exclude>**/*.war</exclude>
 						<exclude>**/*.zip</exclude>
-						<exclude>**/*-with-dependencies.jar</exclude>
+						<exclude>**/*-with-dependencies*</exclude>
 					</excludes>
 					
 					<repositoryName>mvn-repo</repositoryName>      <!-- github repo name -->
