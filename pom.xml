@@ -61,8 +61,6 @@
 					<allowTimestampedSnapshots>true</allowTimestampedSnapshots>
 					<preparationGoals>clean install</preparationGoals>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
-					<updateBranchVersions>true</updateBranchVersions>
-					<updateWorkingCopyVersions>false</updateWorkingCopyVersions>
 				</configuration>
 			</plugin>
 			<plugin>
