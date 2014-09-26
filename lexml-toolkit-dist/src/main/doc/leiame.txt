@@ -16,6 +16,9 @@ ATENÇÃO: Uso de JBoss 6
 Se você usa JBoss 6 ou superior, substitua o arquivo apague o arquivo
 jboss-web.xml e altere o nome do arquivo jboss6-web.xml para jboss-web.xml 
 
+(Dúvidas: ver página 15 do manual
+https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6.1/pdf/Migration_Guide/JBoss_Enterprise_Application_Platform-6.1-Migration_Guide-en-US.pdf)
+
 -------------------------------------------
 Instalação do Validador
 -------------------------------------------
