@@ -8,8 +8,17 @@ para instalação do Validador e da Interface OAI-PMH.
 Para uma compreensão mais completa do Kit Provedor
 de dados, leia o documento LexML_Brasil-Parte_4a-Kit_Provedor_de_Dados.pdf.
 
+
+-------------------------------------------
+ATENÇÃO: Uso de JBoss 6
+-------------------------------------------
+
+Se você usa JBoss 6 ou superior, substitua o arquivo apague o arquivo
+jboss-web.xml e altere o nome do arquivo jboss6-web.xml para jboss-web.xml 
+
 -------------------------------------------
 Instalação do Validador
+-------------------------------------------
 
   1. Obter perfil do provedor (arquivo lexml_nbconfig.xml) junto ao Prodasen
 
@@ -40,6 +49,7 @@ Instalação do Validador
 
 -------------------------------------------
 Instalação da Interface WEB OAI-PMH
+-------------------------------------------
 
   1. É necessário instalar antes o Validador
   
@@ -83,15 +93,10 @@ Instalação da Interface WEB OAI-PMH
         clique em [ListMetadataFormats] e em seguida em [oai_lexml]
 
 -------------------------------------------
+-------------------------------------------
 
 Em caso de dúvida ou algum erro na instalação entrar em contato com:
 
-    Marcos FRAGOMENI
-    Analista de Informática - Senado Federal/Prodasen
-    Tel: (61) 3311-2254
-    E-mail: fragomeni@senado.gov.br
-
-    Lauro César Araujo
-    Analista de Informática - Senado Federal/Prodasen
+    Equipe LexML - Senado Federal/Prodasen
     Tel: (61) 3311-3673
-    E-mail: lauroa@senado.gov.br
+    E-mail: lexml@senado.leg.br
