@@ -8,6 +8,6 @@ fi
 WORKDIR="$(dirname $SCRIPT)"
 cd $WORKDIR
 
-java -cp . LauncherBootstrap -executablename lexml-toolkit run instalar
+./toolkit.sh instalar
 
 cd $CURDIR

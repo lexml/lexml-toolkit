@@ -8,6 +8,10 @@ fi
 WORKDIR="$(dirname $SCRIPT)"
 cd $WORKDIR
 
-java -cp . LauncherBootstrap -executablename lexml-toolkit run $*
+JAVA_OPTS="-Xms128M -Xmx512M -Dfile.encoding=UTF-8 -Dlog.dir=../log"
+CLASSPATH=CLASSPATH=$(ls ../lib/*.jar | xargs echo | tr ' ' ':')
+COMMAND="java -cp ../etc:$CLASSPATH $JAVA_OPTS br.gov.lexml.borda.Toolkit $*"
+#echo $COMMAND
+$COMMAND
 
 cd $CURDIR
