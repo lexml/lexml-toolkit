@@ -7,13 +7,12 @@ import java.io.PrintWriter;
 import java.io.Writer;
 import java.util.Properties;
 
-import de.schlichtherle.io.FileInputStream;
-
 import br.gov.lexml.LexMLUtil;
 import br.gov.lexml.borda.dao.ToolKitDAO;
 import br.gov.lexml.borda.helper.ToolKitHelper;
 import br.gov.lexml.borda.install.ConfigDb.DbInfo;
 import br.gov.lexml.exceptions.InstalacaoException;
+import de.schlichtherle.io.FileInputStream;
 
 
 /**
@@ -59,14 +58,6 @@ public class PassoDbInstalarSchema extends PassoInstalacaoInterativo<ContextoIns
 	public String executaPasso(final String resposta) throws Exception {
 		
 		if(resposta.equals("") || resposta.equalsIgnoreCase("s")) {
-			
-//			ToolKitBO tkBO = null;
-//			try {
-//				tkBO = new ToolKitBO(LexMLConfig.MODO_NODO_BORDA);
-//			} catch (Exception e) {			
-//				throw new RuntimeException("Arquivo de configuracao " + 
-//						LexMLSystem.PERFIL_NODO_BORDA_XML + " invalido.", e);
-//			}
 			
 			Properties p = loadJpaProperties();
 			

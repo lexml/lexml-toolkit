@@ -101,7 +101,7 @@
 							<goal>single</goal>
 						</goals>
 						<configuration>
-							<finalName>lemxl-toolkit-${project.version}</finalName>
+							<finalName>lexml-toolkit-${project.version}</finalName>
 							<appendAssemblyId>false</appendAssemblyId>
 							<descriptors>
 								<descriptor>src/main/assembly/lexml-toolkit-dist.xml</descriptor>

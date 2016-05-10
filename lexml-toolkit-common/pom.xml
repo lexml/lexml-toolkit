@@ -8,6 +8,9 @@
 	</parent>
 	<artifactId>lexml-toolkit-common</artifactId>
 	<name>Código comum aos módulos do Kit Provedor de Dados</name>
+	<properties>
+		<hibernate.version>5.1.0.Final</hibernate.version>
+	</properties>
 	<build>
 		<plugins>
 			<plugin>
@@ -68,38 +71,23 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>3.3.2.GA</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-annotations</artifactId>
-			<version>3.4.0.GA</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-tools</artifactId>
-			<version>3.2.4.GA</version>
+			<version>${hibernate.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>3.4.0.GA</version>
+			<version>${hibernate.version}</version>
 			<optional>false</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-c3p0</artifactId>
-			<version>3.3.2.GA</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>3.1.0.GA</version>
+			<version>${hibernate.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-ehcache</artifactId>
-			<version>3.3.2.GA</version>
+			<version>${hibernate.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>c3p0</groupId>
@@ -109,12 +97,18 @@
 		<dependency>
 			<groupId>br.gov.lexml</groupId>
 			<artifactId>lexml-coleta-validador</artifactId>
-			<version>1.2.2</version>
+			<version>1.2.5</version>
 		</dependency>
 		<dependency>
 			<groupId>de.schlichtherle.io</groupId>
 			<artifactId>truezip</artifactId>
 			<version>6.6</version>
 		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.20</version>
+			<scope>provided</scope>
+		</dependency>		
 	</dependencies>
 </project>

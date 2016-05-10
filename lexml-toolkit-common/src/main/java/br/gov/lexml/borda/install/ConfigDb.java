@@ -20,7 +20,7 @@ public class ConfigDb {
 			3306));
 
 		infos.add(new DbInfo(
-			"Oracle (8i, 9i, 10g e 11g)",
+			"Oracle (8i, 9i, 10g, 11g e 12c)",
 			"org.hibernate.dialect.Oracle8iDialect",
 			"oracle.jdbc.driver.OracleDriver",
 			"jdbc:oracle:thin:@{0}:{1}:{2}",

@@ -4,14 +4,20 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.List;
 import java.util.Properties;
 
 import javax.naming.NamingException;
 
 import org.apache.log4j.Logger;
-import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.boot.MetadataBuilder;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.BootstrapServiceRegistry;
+import org.hibernate.boot.registry.BootstrapServiceRegistryBuilder;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.boot.spi.MetadataImplementor;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
+import org.hibernate.tool.hbm2ddl.TargetTypeHelper;
 
 import br.gov.lexml.LexMLSystem;
 import br.gov.lexml.LexMLUtil;
@@ -25,10 +31,6 @@ public class ToolKitDAO {
 	
 	private static final Logger logger = Logger.getLogger(ToolKitDAO.class.getName());
 
-	public void instalaBancoDeDados() throws NamingException, ConfigFailedException {
-		instalaBancoDeDados(null);
-	}
-	
 	public void instalaBancoDeDados(Properties props) throws NamingException, ConfigFailedException {
 
 		if(props == null) {
@@ -40,23 +42,43 @@ public class ToolKitDAO {
 			throw new ConfigFailedException("Propriedades recebidas são podem ser nulas");
 		}
 		
-		AnnotationConfiguration cfg = createAnnotationConfiguration(props);
+		try {
+	        final BootstrapServiceRegistry bsr = new BootstrapServiceRegistryBuilder().build();
+	        final StandardServiceRegistryBuilder ssrBuilder = new StandardServiceRegistryBuilder( bsr );
 
-		SchemaExport se = new SchemaExport(cfg);
-		se.setOutputFile(LexMLSystem.ARQUIVO_DDL);
-		se.setDelimiter(";");
-		se.create(true, true);
-		
-		List<?> erros = se.getExceptions();
-		if (!erros.isEmpty()) {
-			logger.debug("Total de exceções durante a execução da criação do banco de dados" + erros.size());
-			for (int i = 0; i < erros.size(); i++) {
-				Exception e = (Exception) erros.get(i);
-				logger.error("[" + i + "] =" + e);
-			}
+	        ssrBuilder.applySettings(props);
+
+			StandardServiceRegistry serviceRegistry = ssrBuilder.build();
+
+	        final MetadataImplementor metadata = buildMetadata(serviceRegistry);
+
+	        new SchemaExport()
+	                .setHaltOnError(false)
+	                .setOutputFile(LexMLSystem.ARQUIVO_DDL)
+	                .setDelimiter(";")
+	                .setFormat(true)
+	                .execute(TargetTypeHelper.parseLegacyCommandLineOptions(true, true, LexMLSystem.ARQUIVO_DDL),
+	                        SchemaExport.Action.BOTH, metadata, serviceRegistry);
+	        
+		}
+		catch(Exception e) {
+			logger.error("Falha durante a execução da criação do banco de dados", e);
 		}
 		
 	}
+	
+    private static MetadataImplementor buildMetadata(StandardServiceRegistry serviceRegistry) {
+
+        final MetadataSources metadataSources = new MetadataSources(serviceRegistry);
+        final MetadataBuilder metadataBuilder = metadataSources.getMetadataBuilder();
+
+        metadataSources.addAnnotatedClass(RegistroItem.class);
+        metadataSources.addAnnotatedClass(RegistroItemErro.class);
+        metadataSources.addAnnotatedClass(TipoErro.class);
+        metadataSources.addAnnotatedClass(ConjuntoItem.class);
+
+        return (MetadataImplementor) metadataBuilder.build();
+    }	
 	
 	public boolean validaBancoDeDados(final Properties props) {
 
@@ -83,21 +105,6 @@ public class ToolKitDAO {
         return ret;
 	}
 	
-	protected AnnotationConfiguration createAnnotationConfiguration(final Properties props) {
-		
-		// Cria-se uma configuração programaticamente,
-		// de forma a inicializar o banco de dados
-		AnnotationConfiguration cfg = new AnnotationConfiguration();
-
-		cfg.setProperties(props);
-		cfg.addAnnotatedClass(RegistroItem.class);
-		cfg.addAnnotatedClass(RegistroItemErro.class);
-		cfg.addAnnotatedClass(TipoErro.class);
-		cfg.addAnnotatedClass(ConjuntoItem.class);
-		
-		return cfg;
-	}
-
 	public void testaConexaoBancoDeDados(final Properties p) throws Exception {
 		Connection conn = openConnection(p);
 		conn.commit();

@@ -13,5 +13,12 @@
 			<directory>target/unpack/lexml-toolkit-oai-${project.version}-war</directory>
 			<outputDirectory>/</outputDirectory>
 		</fileSet>
+		<fileSet>
+			<directory>target/unpack/lexml-toolkit-common-${project.version}-jar-with-dependencies-jar/META-INF</directory>
+			<includes>
+				<include>persistence.xml</include>
+			</includes>
+			<outputDirectory>/WEB-INF/classes</outputDirectory>
+		</fileSet>
 	</fileSets>
 </assembly>

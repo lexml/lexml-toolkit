@@ -6,9 +6,6 @@ import br.gov.lexml.borda.domain.TipoErro;
 
 public class TipoErroDAO extends AbstractDAO {
 
-	// private static final Logger logger =
-	// Logger.getLogger(TipoErroDAO.class.getName());
-
 	public TipoErro load(int p_cod) {
 		Query query = getEntityManager().createQuery("select r from TipoErro r where r.idTipoErro =:ite ");
 		query.setParameter("ite", p_cod);

@@ -1,20 +1,16 @@
 package br.gov.lexml.borda.dao;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.spi.PersistenceUnitTransactionType;
+import javax.persistence.Persistence;
 
 import org.apache.log4j.Logger;
-import org.hibernate.cfg.Environment;
-import org.hibernate.ejb.Ejb3Configuration;
 
 import br.gov.lexml.LexMLSystem;
 import br.gov.lexml.LexMLUtil;
-import br.gov.lexml.borda.domain.ConjuntoItem;
-import br.gov.lexml.borda.domain.RegistroItem;
-import br.gov.lexml.borda.domain.RegistroItemErro;
-import br.gov.lexml.borda.domain.TipoErro;
 import br.gov.lexml.exceptions.ConfigFailedException;
 
 /**
@@ -24,8 +20,11 @@ import br.gov.lexml.exceptions.ConfigFailedException;
  * 
  */
 public class EMFFactory {
-
+	
+	public static final String PERSISTENCE_UNIT = "lexml-toolkit";
+	
 	private static Logger logger = Logger.getLogger(EMFFactory.class.getName());
+	
 	private static EntityManagerFactory emf = null;
 
 	public static final EntityManagerFactory getEMF(final Properties properties) {
@@ -46,17 +45,14 @@ public class EMFFactory {
 	            logger.error("Properties passado é nulo");
 	        }
 	        else {
-	            Ejb3Configuration cfg = new Ejb3Configuration();
+	        	
+	        	Map<String, String> map = new HashMap<String, String>();
+	        	for (final String name: properties.stringPropertyNames()) {
+	        	    map.put(name, properties.getProperty(name));	       
+	        	}
+	        	
+	            emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT, map);
 	            
-	            properties.put(Environment.TRANSACTION_STRATEGY, PersistenceUnitTransactionType.RESOURCE_LOCAL);
-
-	            cfg.addProperties(properties)
-	                .addAnnotatedClass(RegistroItem.class)
-	                .addAnnotatedClass(RegistroItemErro.class)
-	                .addAnnotatedClass(TipoErro.class)
-	                .addAnnotatedClass(ConjuntoItem.class);
-	            
-	            emf = cfg.buildEntityManagerFactory();
 	        }
 		}
 

@@ -52,8 +52,17 @@ public class SimpleHqlBuilder {
 				where.append(whereClauses.get(i));
 			}
 		}
-		return selectClause + where + 
-			(orderByClause != null? " order by " + orderByClause: "");
+		return toJpqlStyle(selectClause + where + 
+			(orderByClause != null? " order by " + orderByClause: ""));
+	}
+	
+	private static String toJpqlStyle(String query) {
+		StringBuilder sb = new StringBuilder(query);
+		int j = -1, count = 1;
+		while((j = sb.indexOf("?", j + 1)) != -1) {
+			sb.insert(j + 1, count++);
+		}
+		return sb.toString();
 	}
 	
 	public Object[] getParams() {

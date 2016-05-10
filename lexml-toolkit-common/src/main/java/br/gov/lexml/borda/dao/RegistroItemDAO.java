@@ -110,7 +110,7 @@ public class RegistroItemDAO extends AbstractDAO {
     @SuppressWarnings("boxing")
     public long countNotValid() {
         EntityManager em = getEntityManager();
-        Query q = em.createQuery("SELECT count(ri) FROM RegistroItem ri WHERE ri.cdValidacao in (?,?)");
+        Query q = em.createQuery("SELECT count(ri) FROM RegistroItem ri WHERE ri.cdValidacao in (?1,?2)");
         q.setParameter(1, CdValidacao.INDEFINIDO);
         q.setParameter(2, CdValidacao.ERRO);
         return (Long) q.getSingleResult();
@@ -201,7 +201,7 @@ public class RegistroItemDAO extends AbstractDAO {
     public List<RegistroItem> listAll(final int offset, final int limit) {
         EntityManager em = getEntityManager();
 
-        Query query = em.createQuery("SELECT ri FROM RegistroItem ri "); // ORDER BY :var1 :var2
+        Query query = em.createQuery("SELECT ri FROM RegistroItem ri ");
         query.setFirstResult(offset);
         query.setMaxResults(limit);
 
@@ -211,14 +211,14 @@ public class RegistroItemDAO extends AbstractDAO {
     public int countAll() {
         EntityManager em = getEntityManager();
 
-        Query query = em.createQuery("SELECT ri FROM RegistroItem ri "); // ORDER BY :var1 :var2
+        Query query = em.createQuery("SELECT ri FROM RegistroItem ri ");
 
         return query.getResultList().size();
     }
 
     public void deleteRegistroItemErro(final RegistroItem registroItem) {
         EntityManager em = getEntityManager();
-        Query query = em.createQuery("delete from RegistroItemErro where registroItem.id = ?");
+        Query query = em.createQuery("delete from RegistroItemErro where registroItem.id = ?1");
         query.setParameter(1, registroItem.getIdRegistroItem());
         query.executeUpdate();
     }
@@ -304,7 +304,7 @@ public class RegistroItemDAO extends AbstractDAO {
     public void updateCdValidacao(final List<RegistroItem> list) {
         EntityManager em = getEntityManager();
         for (RegistroItem ri : list) {
-            Query q = em.createNativeQuery("update registro_item set cd_validacao = ? where id_registro_item = ?");
+            Query q = em.createNativeQuery("update registro_item set cd_validacao = ?1 where id_registro_item = ?2");
             q.setParameter(1, ri.getCdValidacao());
             q.setParameter(2, ri.getIdRegistroItem());
         }
