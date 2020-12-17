@@ -3,7 +3,7 @@
 
 	<groupId>br.gov.lexml.toolkit</groupId>
 	<artifactId>lexml-toolkit</artifactId>
-	<version>3.4.4</version>
+	<version>3.4.5-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
 	<name>LexML - Kit Provedor Dados</name>
@@ -26,7 +26,7 @@
 		<url>https://github.com/lexml/${project.artifactId}</url>
 		<developerConnection>scm:git:https://github.com/lexml/${project.artifactId}.git</developerConnection>
 		<connection>scm:git:https://github.com/lexml/${project.artifactId}.git</connection>
-		<tag>lexml-toolkit-3.4.4</tag>
+		<tag>HEAD</tag>
 	</scm>
 	
 	
