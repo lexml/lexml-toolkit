@@ -9,22 +9,26 @@
 	<artifactId>lexml-toolkit-oai</artifactId>
 	<name>Servidor OAI do Kit Provedor de Dados</name>
 	<packaging>war</packaging>
-	<build>
-		<finalName>${artifactId}-${version}</finalName>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.3</version>
-				<configuration>
-					<archive>
-						<manifestEntries>
-							<Implementation-Version>${project.version}</Implementation-Version>
-							<Implementation-Build>${env.SVN_REVISION}</Implementation-Build>
-						</manifestEntries>
-					</archive>
-				</configuration>
-			</plugin>
+        <properties>
+                <slf4j.version>1.7.30</slf4j.version>
+            <prometheus.version>0.9.0</prometheus.version>
+        </properties>
+        <build>
+                <finalName>${project.artifactId}-${project.version}</finalName>
+                <plugins>
+                        <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-war-plugin</artifactId>
+                                <version>2.3</version>
+                                <configuration>
+                                        <archive>
+                                                <manifestEntries>
+                                                        <Implementation-Version>${project.version}</Implementation-Version>
+                                                        <Implementation-Build>${env.SVN_REVISION}</Implementation-Build>
+                                                </manifestEntries>
+                                        </archive>
+                                </configuration>
+                        </plugin>
       <plugin>
         <groupId>io.fabric8</groupId>
         <artifactId>docker-maven-plugin</artifactId>
@@ -39,30 +43,30 @@
               <alias>lexml-toolkit-oai</alias>
               <name>lexmlbr/lexml-toolkit-oai:${project.version}</name>
               <build>
-		<dockerFile>Dockerfile</dockerFile>
+                <dockerFile>Dockerfile</dockerFile>
                 <assembly>
                   <mode>dir</mode>
-		  <targetDir>/usr/local/tomcat/webapps/${project.artifactId}</targetDir>
-		  <inline>
+                  <targetDir>/usr/local/tomcat/webapps/${project.artifactId}</targetDir>
+                  <inline>
                     <dependencySets>
                       <dependencySet>
-			      <outputDirectory>${project.artifactId}/WEB-INF/lib</outputDirectory>
+                              <outputDirectory>${project.artifactId}/WEB-INF/lib</outputDirectory>
                         <useProjectArtifact>false</useProjectArtifact>
                         <scope>runtime</scope>
                       </dependencySet>
                     </dependencySets>
-		    <fileSets>
-			<fileSet>
-				<directory>src/main/webapp</directory>
-				<outputDirectory>${project.artifactId}</outputDirectory>
-			</fileSet>
-			<fileSet>
-			   <directory>target/classes</directory>
-			   <outputDirectory>${project.artifactId}/WEB-INF/classes</outputDirectory>
+                    <fileSets>
+                        <fileSet>
+                                <directory>src/main/webapp</directory>
+                                <outputDirectory>${project.artifactId}</outputDirectory>
+                        </fileSet>
+                        <fileSet>
+                           <directory>target/classes</directory>
+                           <outputDirectory>${project.artifactId}/WEB-INF/classes</outputDirectory>
                         </fileSet>
                       <fileSet>
                         <directory>src/main/bash</directory>
-			<outputDirectory>${project.artifactId}/scripts</outputDirectory>
+                        <outputDirectory>${project.artifactId}/scripts</outputDirectory>
                       </fileSet>
                     </fileSets>
                   </inline>
@@ -70,8 +74,8 @@
                 <entryPoint>
                   <exec>
                     <arg>/bin/bash</arg>
-		    <arg>/usr/local/tomcat/bin/catalina.sh</arg>
-		    <arg>run</arg>
+                    <arg>/usr/local/tomcat/bin/catalina.sh</arg>
+                    <arg>run</arg>
                   </exec>
                 </entryPoint>
               </build>
@@ -91,52 +95,70 @@
           </images>
         </configuration>
       </plugin>
-		</plugins>
-	</build>
-	<dependencies>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>commons-collections</groupId>
-			<artifactId>commons-collections</artifactId>
-			<version>3.2.2</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.1.1</version>
-		</dependency>
-		<dependency>
-			<groupId>xalan</groupId>
+                </plugins>
+        </build>
+        <dependencies>
+                <dependency>
+                        <groupId>javax.servlet</groupId>
+                        <artifactId>servlet-api</artifactId>
+                        <version>2.5</version>
+                        <scope>provided</scope>
+                </dependency>
+                <dependency>
+                        <groupId>commons-collections</groupId>
+                        <artifactId>commons-collections</artifactId>
+                        <version>3.2.2</version>
+                </dependency>
+                <dependency>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                        <version>1.1.1</version>
+                </dependency>
+                <dependency>
+                        <groupId>xalan</groupId>
 <artifactId>xalan</artifactId>
 <version>2.7.2</version>
-		</dependency>
-		<dependency>
-			<groupId>xerces</groupId>
-			<artifactId>xercesImpl</artifactId>
-			<version>2.12.0</version>
-		</dependency>
-		<dependency>
-			<groupId>xml-apis</groupId>
-			<artifactId>xml-apis</artifactId>
-			<version>1.4.01</version>
-		</dependency>
-		<dependency>
-			<groupId>br.gov.lexml.toolkit</groupId>
-			<artifactId>lexml-toolkit-common</artifactId>
-			<version>${project.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-simple</artifactId>
-				</exclusion>
-			</exclusions>
-				<!--			<classifier>jar-with-dependencies</classifier> -->
-		</dependency>
-	</dependencies>
-	
+                </dependency>
+                <dependency>
+                        <groupId>xerces</groupId>
+                        <artifactId>xercesImpl</artifactId>
+                        <version>2.12.0</version>
+                </dependency>
+                <dependency>
+                        <groupId>xml-apis</groupId>
+                        <artifactId>xml-apis</artifactId>
+                        <version>1.4.01</version>
+                </dependency>
+                <dependency>
+                        <groupId>br.gov.lexml.toolkit</groupId>
+                        <artifactId>lexml-toolkit-common</artifactId>
+                        <version>${project.version}</version>
+                        <exclusions>
+                                <exclusion>
+                                        <groupId>org.slf4j</groupId>
+                                        <artifactId>slf4j-simple</artifactId>
+                                </exclusion>
+                        </exclusions>
+                                <!--                    <classifier>jar-with-dependencies</classifier> -->
+                </dependency>
+            <!-- Metrics -->
+            <dependency>
+                <groupId>io.prometheus</groupId>
+                <artifactId>simpleclient</artifactId>
+                <version>${prometheus.version}</version>
+            </dependency>
+            <!-- Hotspot JVM metrics-->
+            <dependency>
+                <groupId>io.prometheus</groupId>
+                <artifactId>simpleclient_hotspot</artifactId>
+                <version>${prometheus.version}</version>
+            </dependency>
+            <!-- Exposition HTTPServer-->
+            <dependency>
+                <groupId>io.prometheus</groupId>
+                <artifactId>simpleclient_servlet</artifactId>
+                <version>${prometheus.version}</version>
+            </dependency>
+        </dependencies>
+        
 </project>

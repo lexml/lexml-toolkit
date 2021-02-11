@@ -19,7 +19,7 @@
 
 		<source.skip>true</source.skip>
 		<maven.deploy.skip>true</maven.deploy.skip>
-		
+                <slf4j.version>1.7.30</slf4j.version>
 	</properties>
 
 	<scm>
@@ -122,27 +122,34 @@
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.5.10</version>
+                        <artifactId>slf4j-log4j12</artifactId>
+                        <scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
-			<version>1.5.10</version>
+                        <scope>runtime</scope>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.5.10</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>1.5.10</version>
-		</dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                    <version>${slf4j.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                    <version>${slf4j.version}</version>
+                    <scope>runtime</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>jcl-over-slf4j</artifactId>
+                    <version>${slf4j.version}</version>
+                    <scope>runtime</scope>
+               </dependency>
 	</dependencies>
 	</dependencyManagement>
 </project>

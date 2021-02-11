@@ -32,8 +32,38 @@
         <filter-name>closeEntityManagerFilter</filter-name>
         <filter-class>br.gov.lexml.server.CloseEntityManagerFilter</filter-class>
     </filter>
-    
+	<filter-mapping>
+		<filter-name>prometheusFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+	<filter>
+		<filter-name>prometheusFilter</filter-name>
+		<filter-class>io.prometheus.client.filter.MetricsFilter</filter-class>
+		<init-param>
+			<param-name>metric-name</param-name>
+			<param-value>webapp_metrics_filter</param-value>
+		</init-param>
+		<init-param>
+			<param-name>help</param-name>
+			<param-value>This is the help for your metrics filter</param-value>
+		</init-param>
+		<init-param>
+			<param-name>buckets</param-name>
+			<param-value>0.005,0.01,0.025,0.05,0.075,0.1,0.25,0.5,0.75,1,2.5,5,7.5,10</param-value>
+		</init-param>
+		<!-- Optionally override path components; anything less than 1 (1 is the default)
+             means full granularity -->
+		<init-param>
+			<param-name>path-components</param-name>
+			<param-value>3</param-value>
+		</init-param>
+	</filter>
+
+
 	<!-- Não há necessidade de se alterar nada daqui para baixo -->
+
 	<servlet>
 		<description>
 			This servlet processes OAI verbs.
@@ -52,7 +82,28 @@
 		<!-- Load this servlet at server startup time -->
 		<load-on-startup>8</load-on-startup> <!-- This number must be higher than the lexmlInit -->
 	</servlet>
-	
+
+	<servlet>
+		<servlet-name>ping</servlet-name>
+		<servlet-class>br.gov.lexml.server.metrics.PingServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ping</servlet-name>
+		<url-pattern>/sfstatus/ping</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>prometheus</servlet-name>
+		<servlet-class>io.prometheus.client.exporter.MetricsServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>prometheus</servlet-name>
+		<url-pattern>/sfstatus/metrics</url-pattern>
+	</servlet-mapping>
+
+
 	<filter-mapping>
 	   <filter-name>closeEntityManagerFilter</filter-name>
 	   <url-pattern>/oai2.do</url-pattern>
@@ -62,7 +113,7 @@
 		<servlet-name>OAIHandler</servlet-name>
 		<url-pattern>/oai2.do</url-pattern>
 	</servlet-mapping>
-
+	
 	<session-config>
 		<session-timeout>30</session-timeout>    <!-- 30 minutes -->
 	</session-config>
