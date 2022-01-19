@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>br.gov.lexml.toolkit</groupId>
 		<artifactId>lexml-toolkit</artifactId>
-		<version>3.4.11-SNAPSHOT</version>
+		<version>3.4.10-SNAPSHOT</version>
 	</parent>
 	<artifactId>lexml-toolkit-dist</artifactId>
 	<packaging>jar</packaging>
