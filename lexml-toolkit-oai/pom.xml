@@ -10,7 +10,6 @@
 	<name>Servidor OAI do Kit Provedor de Dados</name>
 	<packaging>war</packaging>
         <properties>
-                <slf4j.version>1.7.30</slf4j.version>
             <prometheus.version>0.9.0</prometheus.version>
         </properties>
         <build>
