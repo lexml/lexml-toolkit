@@ -1,7 +1,5 @@
 package br.gov.lexml.server.metrics;
 
-import com.sun.mail.iap.Response;
-
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +12,6 @@ public class PingServlet extends HttpServlet {
         Writer w = response.getWriter();
         w.write("pong");
         w.close();
-        response.setStatus(Response.OK);
+        response.setStatus(200);
     }
 }
