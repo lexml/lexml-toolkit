@@ -9,7 +9,7 @@
 	<artifactId>lexml-toolkit-common</artifactId>
 	<name>Código comum aos módulos do Kit Provedor de Dados</name>
 	<properties>
-		<hibernate.version>5.1.0.Final</hibernate.version>
+		<hibernate.version>5.6.12.Final</hibernate.version>
 	</properties>
 	<build>
 		<plugins>
