@@ -20,6 +20,7 @@
 		<source.skip>true</source.skip>
 		<maven.deploy.skip>true</maven.deploy.skip>
 		<slf4j.version>1.7.36</slf4j.version>
+		<ehcache.version>2.10.9.2</ehcache.version>
 	</properties>
 
 	<scm>
@@ -132,6 +133,11 @@
 				<artifactId>jcl-over-slf4j</artifactId>
 				<version>${slf4j.version}</version>
 				<scope>runtime</scope>
+			</dependency>
+			<dependency>
+    		<groupId>net.sf.ehcache</groupId>
+    			<artifactId>ehcache</artifactId>
+    			<version>${ehcache.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
