@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>br.gov.lexml.toolkit</groupId>
 		<artifactId>lexml-toolkit</artifactId>
-		<version>3.4.13-SNAPSHOT</version>
+		<version>3.4.13</version>
 		<relativePath>../</relativePath>
 	</parent>
 	<artifactId>lexml-toolkit-oai</artifactId>
