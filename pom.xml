@@ -3,7 +3,7 @@
 
 	<groupId>br.gov.lexml.toolkit</groupId>
 	<artifactId>lexml-toolkit</artifactId>
-	<version>3.4.12-SNAPSHOT</version>
+	<version>3.4.14-SNAPSHOT</version>
 
 	<packaging>pom</packaging>
 	<name>LexML - Kit Provedor Dados</name>
@@ -20,6 +20,7 @@
 		<source.skip>true</source.skip>
 		<maven.deploy.skip>true</maven.deploy.skip>
 		<slf4j.version>1.7.36</slf4j.version>
+		<ehcache.version>2.10.9.2</ehcache.version>
 	</properties>
 
 	<scm>
@@ -123,7 +124,7 @@
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-log4j12</artifactId>
+				<artifactId>slf4j-reload4j</artifactId>
 				<version>${slf4j.version}</version>
 				<scope>runtime</scope>
 			</dependency>
@@ -132,6 +133,11 @@
 				<artifactId>jcl-over-slf4j</artifactId>
 				<version>${slf4j.version}</version>
 				<scope>runtime</scope>
+				</dependency>
+			<dependency>
+	    		        <groupId>net.sf.ehcache</groupId>
+    				<artifactId>ehcache</artifactId>
+    				<version>${ehcache.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
