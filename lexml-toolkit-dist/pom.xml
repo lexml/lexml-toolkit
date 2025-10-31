@@ -6,7 +6,7 @@
 		<version>3.4.15-SNAPSHOT</version>
 	</parent>
 	<artifactId>lexml-toolkit-dist</artifactId>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 	<name>Pacote de Distribuição do LexML Toolkit</name>
 	<build>
 		<finalName>lexml-toolkit-${project.version}</finalName>
