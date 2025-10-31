@@ -4,7 +4,7 @@
 		<groupId>br.gov.lexml.toolkit</groupId>
 		<artifactId>lexml-toolkit</artifactId>
 		<relativePath>../</relativePath>
-		<version>3.4.15-SNAPSHOT</version>
+		<version>3.4.15</version>
 	</parent>
 	<artifactId>lexml-toolkit-common</artifactId>
 	<name>Código comum aos módulos do Kit Provedor de Dados</name>
