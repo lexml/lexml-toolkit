@@ -1,4 +1,4 @@
-FROM tomcat:8.5.82-jdk8-temurin-focal
+FROM tomcat:9.0.111-jdk8-temurin-jammy
 #RUN apt-get update && \
 #    apt-get install -y vim
 COPY maven/ /usr/local/tomcat/webapps/
